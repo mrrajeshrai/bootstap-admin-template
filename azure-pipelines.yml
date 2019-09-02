@@ -32,11 +32,3 @@ steps:
   inputs:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
-
-- task: AzureRmWebAppDeployment@4
-  inputs:
-    ConnectionType: 'AzureRM'
-    azureSubscription: 'MrRajeshRaiAzureConnection'
-    appType: 'webApp'
-    WebAppName: 'sdadmin'
-    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
