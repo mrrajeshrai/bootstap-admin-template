@@ -33,11 +33,10 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
-
-- task: ArchiveFiles@2
+- task: AzureRmWebAppDeployment@4
   inputs:
-    rootFolderOrFile: '$(Build.BinariesDirectory)'
-    includeRootFolder: true
-    archiveType: 'zip'
-    archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
-    replaceExistingArchive: true
+    ConnectionType: 'AzureRM'
+    azureSubscription: 'MrRajeshRaiAzureConnection'
+    appType: 'webApp'
+    WebAppName: 'sdadmin'
+    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
